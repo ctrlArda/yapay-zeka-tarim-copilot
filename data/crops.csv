@@ -1,0 +1,11 @@
+name,optimal_temp,optimal_humidity,water_needs,optimal_ph,pest_resistance
+Bugday,24.0,55.0,180.0,6.0,7.0
+Misir,28.0,60.0,200.0,6.5,6.0
+Pamuk,30.0,70.0,220.0,6.8,5.5
+Aycicegi,25.0,65.0,150.0,6.2,6.5
+Pirinc,30.0,80.0,250.0,6.5,5.0
+Sogan,22.0,50.0,160.0,6.0,8.0
+Domates,26.0,70.0,200.0,6.5,7.0
+Biber,27.0,65.0,180.0,6.5,6.0
+Havuc,20.0,60.0,150.0,6.0,7.5
+Patates,25.0,75.0,200.0,6.2,6.5

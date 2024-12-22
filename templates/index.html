@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Seçme Ekranı</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ürün Seçme Ekranı</h1>
+    <form id="productForm">
+        <label for="product">Bir ürün seçin:</label>
+        <select id="product" name="product">
+            {% for product in products %}
+            <option value="{{ product }}">{{ product }}</option>
+            {% endfor %}
+        </select>
+        <button type="button" onclick="submitForm()">Öneri Al</button>
+    </form>
+    <p id="recommendation"></p>
+
+    <script>
+        function submitForm() {
+            const product = document.getElementById("product").value;
+            fetch("/recommend", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ product })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.recommendations) {
+                    document.getElementById("recommendation").innerText = JSON.stringify(data.recommendations, null, 2);
+                } else {
+                    document.getElementById("recommendation").innerText = data.error;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
